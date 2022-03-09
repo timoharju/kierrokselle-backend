@@ -2,6 +2,7 @@ HELP.md
 target/
 !**/src/main/**/target/
 !**/src/test/**/target/
+.gitignore
 
 
 ### STS ###
@@ -20,6 +21,7 @@ target/
 *.ipr
 
 ### NetBeans ###
+nbactions.xml
 /nbproject/private/
 /nbbuild/
 /dist/
