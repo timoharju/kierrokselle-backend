@@ -24,18 +24,16 @@ public class CourseController {
 
     @GetMapping("/api/courses/{id}")
     public Course getCourseById(@PathVariable Long id) {
-        return courseRepo.getById(id);
+        return courseRepo.findById(id).get();
     }
     
     @DeleteMapping("/api/courses/{id}")
     public Course deleteCourseById(@PathVariable Long id) {
-        Course course = courseRepo.getById(id); 
+        Course course = courseRepo.findById(id).get(); 
         courseRepo.delete(course);
         return course;
     }
     
-
-
     @PostMapping("/api/courses")
     public Course postCourse(@RequestBody Course course) {
         return courseRepo.save(course);
