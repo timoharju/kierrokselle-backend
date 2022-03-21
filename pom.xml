@@ -14,7 +14,7 @@
 	<name>kierrokselle-backend</name>
 	<description>Backend for the disc golf course app &quot;Kierrokselle&quot;</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

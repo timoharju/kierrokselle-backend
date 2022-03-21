@@ -1,13 +1,12 @@
-package com.timoharju.kierroksellebackend;
+package com.timoharju.kierroksellebackend.entities;
 
 import javax.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Data
-@Entity     
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 public class Course extends AbstractPersistable<Long> {

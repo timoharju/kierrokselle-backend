@@ -1,6 +1,8 @@
 
-package com.timoharju.kierroksellebackend;
+package com.timoharju.kierroksellebackend.services;
 
+import com.timoharju.kierroksellebackend.entities.Course;
+import com.timoharju.kierroksellebackend.repositories.CourseRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
