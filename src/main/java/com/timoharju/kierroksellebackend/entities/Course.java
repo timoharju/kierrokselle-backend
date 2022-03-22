@@ -13,7 +13,7 @@ public class Course extends AbstractPersistable<Long> {
 
     private String courseName;
     private int holeCount;
-    private double yCoordinate;
-    private double xCoordinate;
+    private double lat;
+    private double lon;
 
 }

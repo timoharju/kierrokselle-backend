@@ -1,4 +1,3 @@
-
 package com.timoharju.kierroksellebackend.config;
 
 import org.springframework.context.annotation.Bean;

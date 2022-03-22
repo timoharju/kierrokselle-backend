@@ -19,17 +19,22 @@ public class CourseController {
         this.courseRepo = courseRepo;
     }
 
-    @GetMapping("/api/courses")
-    public List<Course> getCourses() {
+    @GetMapping("/api/v1/courses")
+    public List<Course> getAllCourses() {
         return courseRepo.findAll();
     }
 
-    @GetMapping("/api/courses/{id}")
+    /**
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/api/v1/courses/{id}")
     public Course getCourseById(@PathVariable Long id) {
         return courseRepo.findById(id).orElse(null);
     }
     
-    @DeleteMapping("/api/courses/{id}")
+    @DeleteMapping("/api/v1/courses/{id}")
     public Course deleteCourseById(@PathVariable Long id) {
         Course course = courseRepo.findById(id).orElse(null);
         if (course == null) throw new AssertionError();
@@ -37,7 +42,7 @@ public class CourseController {
         return course;
     }
     
-    @PostMapping("/api/courses")
+    @PostMapping("/api/v1/courses")
     public Course postCourse(@RequestBody Course course) {
         return courseRepo.save(course);
     }

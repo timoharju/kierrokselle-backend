@@ -51,3 +51,4 @@ release.properties
 ## Databases
 database.mv.db
 database.trace.db
+/testdb/
