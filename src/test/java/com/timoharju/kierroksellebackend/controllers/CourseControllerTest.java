@@ -6,25 +6,20 @@ import com.timoharju.kierroksellebackend.exceptions.CourseNotFoundException;
 import com.timoharju.kierroksellebackend.models.Course;
 import com.timoharju.kierroksellebackend.services.CourseService;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.hibernate.ObjectNotFoundException;
-import org.hibernate.annotations.NotFound;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
@@ -44,15 +39,15 @@ public class CourseControllerTest {
     CourseService courseServ;
 
 
-    Course COURSE_1 = new Course(1L, "Puolarmaari", 18, 23.35, 22.22);
-    Course COURSE_2 = new Course(2L, "Oittaa", 16, 23.35, 22.22);
-    Course COURSE_3 = new Course(3L, "Vols", 17, 22.351313, 22.22222);
+    Course COURSE_1 = new Course(1L, "Puolarmaari", 18, 23.35, 22.22, "A1", LocalDateTime.now(), LocalDateTime.now());
+    Course COURSE_2 = new Course(2L, "Oittaa", 16, 23.35, 22.22, "A1", LocalDateTime.now(), LocalDateTime.now());
+    Course COURSE_3 = new Course(3L, "Vols", 17, 22.351313, 22.22222, "A1", LocalDateTime.now(), LocalDateTime.now());
 
     @Test
     public void can_getAllCourses() throws Exception {
         List<Course> courses = new ArrayList<>(Arrays.asList(COURSE_1, COURSE_2, COURSE_3));
 
-        when(courseServ.list()).thenReturn(courses);
+        when(courseServ.getAllCourses()).thenReturn(courses);
 
         mockMvc.perform(MockMvcRequestBuilders
                 .get("/api/v1/courses")
@@ -64,7 +59,7 @@ public class CourseControllerTest {
 
     @Test
     public void successfully_getCourseById() throws Exception {
-        when(courseServ.get(COURSE_1.getId())).thenReturn(COURSE_1);
+        when(courseServ.getCourse(COURSE_1.getId())).thenReturn(COURSE_1);
 
         mockMvc.perform(MockMvcRequestBuilders
                 .get("/api/v1/courses/1")
@@ -81,9 +76,10 @@ public class CourseControllerTest {
                 .holeCount(18)
                 .lat(63.2255)
                 .lon(20.25252)
+                .createdAt(LocalDateTime.now())
                 .build();
 
-        when(courseServ.create(course)).thenReturn(course);
+        when(courseServ.createCourse(course)).thenReturn(course);
 
         MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.post("/api/v1/courses")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -104,9 +100,10 @@ public class CourseControllerTest {
                 .holeCount(18)
                 .lon(65.22)
                 .lat(25.4242)
+                .courseDifficulty("A1")
                 .build();
 
-        when(courseServ.update(updatedCourse, COURSE_1.getId())).thenReturn(updatedCourse);
+        when(courseServ.updateCourse(updatedCourse, COURSE_1.getId())).thenReturn(updatedCourse);
 
         MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.put("/api/v1/courses/" + updatedCourse.getId().toString())
                 .contentType(MediaType.APPLICATION_JSON)
@@ -127,9 +124,10 @@ public class CourseControllerTest {
                 .holeCount(18)
                 .lon(65.22)
                 .lat(25.4242)
+                .courseDifficulty("A1")
                 .build();
 
-      doThrow(new CourseNotFoundException()).when(courseServ).update(updatedCourse, updatedCourse.getId());
+      doThrow(new CourseNotFoundException()).when(courseServ).updateCourse(updatedCourse, updatedCourse.getId());
 
         MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.put("/api/v1/courses/" + updatedCourse.getId().toString())
                 .contentType(MediaType.APPLICATION_JSON)

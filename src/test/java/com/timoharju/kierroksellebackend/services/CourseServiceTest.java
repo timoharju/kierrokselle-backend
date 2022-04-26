@@ -12,6 +12,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 
+import java.time.LocalDateTime;
+
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -29,12 +31,12 @@ class CourseServiceTest {
     ArgumentCaptor<Course> courseCaptor;
 
 
-    Course COURSE_1 = new Course(1L, "Puolarmaari", 18, 23.35, 22.22);
+    Course COURSE_1 = new Course(1L, "Puolarmaari", 18, 23.35, 22.22, "A1", LocalDateTime.now(), LocalDateTime.now());
 
 
     @Test
     void canCreateNewCourse() {
-        underTest.create(COURSE_1);
+        underTest.createCourse(COURSE_1);
         verify(courseRepo).save(courseCaptor.capture());
         Course capturedCourse = courseCaptor.getValue();
         assertThat(capturedCourse).isEqualTo(COURSE_1);
@@ -42,20 +44,20 @@ class CourseServiceTest {
 
     @Test
     void CanGetCourseById() {
-        underTest.get(COURSE_1.getId());
+        underTest.getCourse(COURSE_1.getId());
         assert COURSE_1.getId() != null;
         verify(courseRepo).findById(COURSE_1.getId());
     }
 
     @Test
-    void canGetAllStudents() {
-        underTest.list();
+    void canGetAllCourses() {
+        underTest.getAllCourses();
         verify(courseRepo).findAll();
     }
 
     @Test
     void canDeleteCourseById() {
-        underTest.delete(COURSE_1.getId());
+        underTest.deleteCourse(COURSE_1.getId());
         assert COURSE_1.getId() != null;
         verify(courseRepo).deleteById(COURSE_1.getId());
     }
