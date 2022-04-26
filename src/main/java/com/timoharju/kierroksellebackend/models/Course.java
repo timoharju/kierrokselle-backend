@@ -1,17 +1,20 @@
 package com.timoharju.kierroksellebackend.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.*;
 
 import lombok.*;
-import org.springframework.data.jpa.domain.AbstractPersistable;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Course extends AbstractPersistable<Long> {
+public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,13 +22,22 @@ public class Course extends AbstractPersistable<Long> {
     @NotBlank
     @Column(unique = true)
     private String courseName;
-    @NotBlank
+    @Min(0)
+    @Max(1000)
     private int holeCount;
-    @NotBlank
+    @Min(-90)
+    @Max(90)
     @Column(nullable = false)
     private double lat;
-    @NotBlank
+    @Min(-180)
+    @Max(180)
     @Column(nullable = false)
     private double lon;
+    private String courseDifficulty;
+    @Column(updatable = false)
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
 
 }
