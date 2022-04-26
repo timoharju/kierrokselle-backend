@@ -5,14 +5,14 @@ import java.util.List;
 
 public interface ICourseService {
 
-    Course create(Course course);
+    Course createCourse(Course course);
 
-    Course get(Long id);
+    Course getCourse(Long id);
 
-    List<Course> list();
+    List<Course> getAllCourses();
 
-    Course delete(Long id);
+    Course deleteCourse(Long id);
 
-    Course update(Course course, Long id);
+    Course updateCourse(Course course, Long id);
 
 }

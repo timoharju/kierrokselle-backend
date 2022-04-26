@@ -17,36 +17,34 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/v1/courses")
+@RequestMapping("/api/v1")
 public class CourseController {
-
 
     private final CourseService courseServ;
 
-
-    @GetMapping
+    @GetMapping("/courses")
     public List<Course> getAllCourses() {
-        return courseServ.list();
+        return courseServ.getAllCourses();
     }
 
-    @GetMapping("/{courseId}")
+    @GetMapping("/courses/{courseId}")
     public Course getCourseById(@PathVariable Long courseId) {
-        return courseServ.get(courseId);
+        return courseServ.getCourse(courseId);
     }
 
-    @PostMapping
-    public Course postCourse(@RequestBody Course course) {
-        return courseServ.create(course);
+    @PostMapping("/course/create")
+    public Course createCourse(@RequestBody Course course) {
+        return courseServ.createCourse(course);
     }
 
-    @DeleteMapping("/{courseId}")
+    @DeleteMapping("/courses/delete/{courseId}")
     public Course deleteCourseById(@PathVariable Long courseId) {
-        return courseServ.delete(courseId);
+        return courseServ.deleteCourse(courseId);
     }
 
-    @PutMapping("/{courseId}")
+    @PutMapping("/courses/update/{courseId}")
     public Course updateCourse(@RequestBody Course course, @PathVariable Long courseId) {
-        return courseServ.update(course, courseId);
+        return courseServ.updateCourse(course, courseId);
     }
 
 }
