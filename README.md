@@ -27,7 +27,7 @@ Through Terminal
 ```
 $ cd (your_path)/kierrokselle-backend
 $ mvn package
-$ java -cp target/kierrokselle-backend-0.1-SNAPSHOT.jar com.timoharju.App
+$ java -cp target/kierrokselle-backend-0.1-SNAPSHOT.jar com.timoharju.kierroksellebackend.KierrokselleBackendApplication
 ```
 With IDE
 ```
