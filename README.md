@@ -8,6 +8,7 @@ This is the backend for the Kierrokselle application and it is being run by Java
 To run this project locally you need:
 
 * Git (Recommended)
+* Maven OR
 * Your choice of Java IDE
 
 ### Cloning
