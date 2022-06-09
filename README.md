@@ -1,62 +1,35 @@
-# Project Title
+## About
 
-Simple overview of use/purpose.
+Kierrokselle is a single page disc golf web application. The purpose of the web application is to have a easy way to discover nearby disc golf courses.
+This is the backend for the Kierrokselle application and it is being run by Java Spring Boot and managed by Maven. The project has been initialized via Spring boot initializr. 
 
-## Description
+## Setup
 
-An in-depth paragraph about your project and overview of use.
+To run this project locally you need:
 
-## Getting Started
+* Git (Recommended)
+* Your choice of Java IDE
 
-### Dependencies
+### Cloning
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+Start by downloading the zip file of this project from GitHub.
 
-### Installing
+Or if you have Git installed
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
 ```
-code blocks for commands
+$ git clone https://github.com/timoharju/kierrokselle-backend.git
 ```
 
-## Help
+### Running locally
 
-Any advise for common problems or issues.
+Through Terminal
 ```
-command to run if program contains helper info
+$ cd (your_path)/kierrokselle-backend
+$ mvn package
+$ java -cp target/kierrokselle-backend-0.1-SNAPSHOT.jar com.timoharju.App
 ```
-
-## Authors
-
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+With IDE
+```
+1. Build the project 
+2. Run the project
+```
