@@ -31,7 +31,7 @@ class CourseServiceTest {
     ArgumentCaptor<Course> courseCaptor;
 
 
-    Course COURSE_1 = new Course(1L, "Puolarmaari", 18, 23.35, 22.22, "A1", LocalDateTime.now(), LocalDateTime.now());
+    Course COURSE_1 = new Course(1L, "Puolarmaari","Espoo", "Osoite 1 A", "", 18, 3.3, 23.35, 22.22, "A1", LocalDateTime.now(), LocalDateTime.now());
 
 
     @Test

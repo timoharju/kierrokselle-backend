@@ -32,7 +32,7 @@ public class CourseController {
         return courseServ.getCourse(courseId);
     }
 
-    @PostMapping("/course/create")
+    @PostMapping("/courses/create")
     public Course createCourse(@RequestBody Course course) {
         return courseServ.createCourse(course);
     }

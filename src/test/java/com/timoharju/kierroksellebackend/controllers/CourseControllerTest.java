@@ -39,9 +39,9 @@ public class CourseControllerTest {
     CourseService courseServ;
 
 
-    Course COURSE_1 = new Course(1L, "Puolarmaari", 18, 23.35, 22.22, "A1", LocalDateTime.now(), LocalDateTime.now());
-    Course COURSE_2 = new Course(2L, "Oittaa", 16, 23.35, 22.22, "A1", LocalDateTime.now(), LocalDateTime.now());
-    Course COURSE_3 = new Course(3L, "Vols", 17, 22.351313, 22.22222, "A1", LocalDateTime.now(), LocalDateTime.now());
+    Course COURSE_1 = new Course(1L, "Puolarmaari","Espoo", "Osoite 1 A", "", 18, 3.3, 23.35, 22.22, "A1", LocalDateTime.now(), LocalDateTime.now());
+    Course COURSE_2 = new Course(2L, "Oittaa","Espoo", "Osoite 1 A", "", 16, 3.3, 22.22,3.3, "A1", LocalDateTime.now(), LocalDateTime.now());
+    Course COURSE_3 = new Course(3L, "Vols", "Kirkkonummi", "Osoite 1 A", "", 17, 3.3, 22.351313, 22.22222, "A1", LocalDateTime.now(), LocalDateTime.now());
 
     @Test
     public void can_getAllCourses() throws Exception {

@@ -42,9 +42,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().disable();
         http.sessionManagement().sessionCreationPolicy(STATELESS);
         http.authorizeRequests().antMatchers( "/api/v1/login/**", "/token/refresh/**").permitAll();
+
         http.authorizeRequests().antMatchers(GET, "/api/v1/courses/**").permitAll();
+        http.authorizeRequests().antMatchers(GET, "/api/v1/users/**").permitAll();
         http.authorizeRequests().antMatchers(PUT, "/api/v1/courses/update/**").permitAll();
-        http.authorizeRequests().antMatchers(POST, "/api/v1/course/**").hasAnyAuthority("ROLE_ADMIN");
+        http.authorizeRequests().antMatchers(DELETE, "/api/v1/courses/delete/**").permitAll();
+        http.authorizeRequests().antMatchers(POST, "/api/v1/courses/create/**").permitAll();
         http.authorizeRequests().antMatchers("/h2-console/**").permitAll();
         http.authorizeRequests().antMatchers("/").permitAll();
         http.authorizeRequests().anyRequest().authenticated();

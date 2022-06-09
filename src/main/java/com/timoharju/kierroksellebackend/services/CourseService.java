@@ -64,6 +64,7 @@ public class CourseService implements ICourseService {
         existingCourse.setLat(course.getLat());
         existingCourse.setLon(course.getLon());
         existingCourse.setCourseDifficulty(course.getCourseDifficulty());
+        existingCourse.setRating(0);
 
         return courseRepo.save(existingCourse);
     }
