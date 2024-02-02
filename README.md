@@ -1,15 +1,7 @@
 ## About
 
-Kierrokselle is a single page disc golf web application. The purpose of the web application is to have a easy way to discover nearby disc golf courses.
-This is the backend for the Kierrokselle application and it is being run by Java Spring Boot and managed by Maven. The project has been initialized via Spring boot initializr. 
-
-## Setup
-
-To run this project locally you need:
-
-* Git (Recommended)
-* Maven OR
-* Your choice of Java IDE
+This is the backend for the Kierrokselle PWA. The purpose of the web application is to have a easy way to discover nearby disc golf courses.
+The project has been initialized via Spring boot initializr. 
 
 ### Cloning
 
@@ -28,9 +20,4 @@ Through Terminal
 $ cd (your_path)/kierrokselle-backend
 $ mvn package
 $ java -cp target/kierrokselle-backend-0.1-SNAPSHOT.jar com.timoharju.kierroksellebackend.KierrokselleBackendApplication
-```
-With IDE
-```
-1. Build the project 
-2. Run the project
 ```
